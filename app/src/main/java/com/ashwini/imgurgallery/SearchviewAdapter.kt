@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class SearchviewAdapter(private var searchList: ArrayList<SearchModel>, ) : RecyclerView.Adapter<SearchviewAdapter.CourseViewHolder>() {
-        
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchviewAdapter.CourseViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.search_item, parent, false)
         return CourseViewHolder(itemView)
     }
         
-        
+        //this is function to filter a list
         fun filterList(filterlist: ArrayList<SearchModel>) {
            
             searchList = filterlist
@@ -24,12 +25,12 @@ class SearchviewAdapter(private var searchList: ArrayList<SearchModel>, ) : Recy
         
         override fun onBindViewHolder(holder: SearchviewAdapter.CourseViewHolder, position: Int) {
             
-            holder.id.text = searchList.get(position).id
             holder.name.text= (searchList.get(position).name)
             holder.display_name.text=(searchList.get(position).display_name)
 
         }
-        
+
+    //returns the count of tags
         override fun getItemCount(): Int {
             
             return searchList.size
@@ -37,7 +38,6 @@ class SearchviewAdapter(private var searchList: ArrayList<SearchModel>, ) : Recy
         
         class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
            
-            var id: TextView = itemView.findViewById(R.id.sid)
             var name: TextView = itemView.findViewById(R.id.sname)
             var display_name: TextView = itemView.findViewById(R.id.sdisplay_name)
 

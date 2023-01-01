@@ -12,13 +12,6 @@
             tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/sid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                tools:ignore="RtlCompat" />
-
-            <TextView
                 android:id="@+id/sname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
