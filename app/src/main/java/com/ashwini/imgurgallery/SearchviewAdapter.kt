@@ -1,5 +1,7 @@
 package com.ashwini.imgurgallery
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,12 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class SearchviewAdapter(private var searchList: ArrayList<SearchModel>, ) : RecyclerView.Adapter<SearchviewAdapter.CourseViewHolder>() {
+class SearchviewAdapter(private var searchList: ArrayList<SearchModel>) : RecyclerView.Adapter<SearchviewAdapter.SearchviewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchviewAdapter.CourseViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchviewAdapter.SearchviewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.search_item, parent, false)
-        return CourseViewHolder(itemView)
+        return SearchviewHolder(itemView)
     }
         
         //this is function to filter a list
@@ -23,10 +25,17 @@ class SearchviewAdapter(private var searchList: ArrayList<SearchModel>, ) : Recy
             notifyDataSetChanged()
             }
         
-        override fun onBindViewHolder(holder: SearchviewAdapter.CourseViewHolder, position: Int) {
+        override fun onBindViewHolder(holder: SearchviewHolder, position: Int) {
             
             holder.name.text= (searchList.get(position).name)
             holder.display_name.text=(searchList.get(position).display_name)
+
+            holder.itemView.setOnClickListener(View.OnClickListener {
+                val context: Context = holder.itemView.getContext()
+                val intent = Intent(context, ImgurImagesActivity::class.java)
+                intent.putExtra("Name",holder.name.text)
+                context.startActivity(intent)
+            })
 
         }
 
@@ -36,7 +45,7 @@ class SearchviewAdapter(private var searchList: ArrayList<SearchModel>, ) : Recy
             return searchList.size
             }
         
-        class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        class SearchviewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
            
             var name: TextView = itemView.findViewById(R.id.sname)
             var display_name: TextView = itemView.findViewById(R.id.sdisplay_name)
