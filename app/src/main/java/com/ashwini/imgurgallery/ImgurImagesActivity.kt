@@ -56,7 +56,7 @@ class ImgurImagesActivity : AppCompatActivity() {
                 var jsonarray_data: JSONArray = json_contact.getJSONArray("data")
                 var size: Int = jsonarray_data.length()
 
-                for (i in 0..size-1){
+                for (i in 0..size-1) {
                     var json_objectdetail: JSONObject = jsonarray_data.getJSONObject(i)
                     var model = ImgurModel()
                     model.imgId = json_objectdetail.getString("id")
