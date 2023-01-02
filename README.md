@@ -110,7 +110,7 @@ Generate Client id and client secrete for Imgur Api. The creation of credentials
 Below are the screenshots of application:
 #searchview
 [
-![search](https://user-images.githubusercontent.com/29300780/210281535-8f8d70e9-7812-42d3-a29d-2263b04738c8.png = 300*400)
+![search](https://user-images.githubusercontent.com/29300780/210281535-8f8d70e9-7812-42d3-a29d-2263b04738c8.png)
 ](url)
 
 #search with edittext
