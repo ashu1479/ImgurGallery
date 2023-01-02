@@ -108,4 +108,19 @@ Generate Client id and client secrete for Imgur Api. The creation of credentials
              val sortedarlist = arrayList_details.sortedWith(compareByDescending(ImgurModel::post_date))  / descending order based on post_date.
 
 Below are the screenshots of application:
+#searchview
+[
+![search](https://user-images.githubusercontent.com/29300780/210281535-8f8d70e9-7812-42d3-a29d-2263b04738c8.png)
+](url)
+
+#search with edittext
+![editable search](https://user-images.githubusercontent.com/29300780/210281663-d763b8f1-3b34-46a4-a286-1c9e5fb6024e.png)
+
+#Toggle to Listview
+![grid view](https://user-images.githubusercontent.com/29300780/210281578-08f35482-8f4a-46ce-aba1-a71f7ed00a16.png)
+
+#Toggle to Gridview
+![listview](https://user-images.githubusercontent.com/29300780/210281918-b53c463c-c51b-4c50-8841-28cc9755a4c5.png)
+
+
 
