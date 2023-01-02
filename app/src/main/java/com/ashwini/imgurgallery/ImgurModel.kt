@@ -1,18 +1,18 @@
 package com.ashwini.imgurgallery
 
 class ImgurModel {
-    var imgId: Int?= null
+    var imgId: String?= null
     var title: String?= null
     var post_date:String?= null
     var image_num:Int?= null
     var imageval:String?= null
 
 
-    fun getimgId(): Int {
-        return imgId!!
+    fun getimgId(): String {
+        return imgId.toString()
     }
 
-    fun setimgId(id: Int) {
+    fun setimgId(imgId: String) {
         this.imgId = imgId
     }
 
