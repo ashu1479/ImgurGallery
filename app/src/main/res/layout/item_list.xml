@@ -21,14 +21,6 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/list_imgId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:text="Image id"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-        <TextView
             android:id="@+id/list_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,12 +39,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="number"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-        <TextView
-            android:id="@+id/list_imageval"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="imageval"
             android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
 
