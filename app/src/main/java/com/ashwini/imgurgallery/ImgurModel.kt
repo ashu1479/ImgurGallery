@@ -7,7 +7,6 @@ class ImgurModel {
     var image_num:Int?= null
     var imageval:String?= null
 
-
     fun getimgId(): String {
         return imgId.toString()
     }
@@ -46,4 +45,6 @@ class ImgurModel {
     fun setimageval(imageval: String) {
         this.imageval = imageval
     }
+
+
 }

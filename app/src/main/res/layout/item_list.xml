@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
@@ -13,34 +13,34 @@
         android:scaleType="centerCrop"
         android:src="@drawable/imgur" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="16dp">
 
         <TextView
             android:id="@+id/list_title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@id/image_big"
             android:text="title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <TextView
+    <TextView
+        android:id="@+id/list_image_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:layout_alignParentLeft="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+    <TextView
             android:id="@+id/list_post_date"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/image_big"
             android:text="post date"
             android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-        <TextView
-            android:id="@+id/list_image_num"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="number"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
-
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

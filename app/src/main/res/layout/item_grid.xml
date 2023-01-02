@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
@@ -18,21 +18,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="title"
+        android:layout_below="@+id/image_small"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <TextView
         android:id="@+id/grid_post_date"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="post date"
+        android:layout_below="@+id/grid_title"
+        android:layout_alignParentRight="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
     <TextView
         android:id="@+id/grid_image_num"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="number"
+        android:background="@drawable/rectangle"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:layout_alignParentRight="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
-</LinearLayout>
+</RelativeLayout>
