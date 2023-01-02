@@ -1,9 +1,9 @@
 package com.ashwini.imgurgallery
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,12 +11,16 @@ import okhttp3.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
+import java.util.*
+import kotlin.Comparator
+import kotlin.collections.ArrayList
 
 class ImgurImagesActivity : AppCompatActivity() {
     private var layoutManager: GridLayoutManager? = null
     private var obj_adapter: ImgurImageAdapter? = null
     private var recyclerView: RecyclerView?=null
     var arrayList_details:ArrayList<ImgurModel> = ArrayList();
+
     val client = OkHttpClient()
     var query:String?= null
 
@@ -26,7 +30,7 @@ class ImgurImagesActivity : AppCompatActivity() {
         query= intent.getStringExtra("Name")
         recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
-        layoutManager = GridLayoutManager(this, 3)
+        layoutManager = GridLayoutManager(this, 2)
         recyclerView!!?.layoutManager = layoutManager
         obj_adapter = ImgurImageAdapter(arrayList_details, layoutManager!!)
         recyclerView!!?.adapter = obj_adapter
@@ -62,7 +66,11 @@ class ImgurImagesActivity : AppCompatActivity() {
                     model.imgId = json_objectdetail.getString("id")
                     model.title = json_objectdetail.getString("title")
                     model.post_date = json_objectdetail.getString("datetime")
-                    model.image_num = json_objectdetail.getInt("images_count")
+
+                    if(json_objectdetail.getInt("images_count").equals(null))
+                        model.image_num = 0
+                    else
+                        model.image_num = json_objectdetail.getInt("images_count")
 
                     var jsonarray_data: JSONArray = json_objectdetail.getJSONArray("images")
                     var imagesize: Int = jsonarray_data.length()
@@ -76,8 +84,11 @@ class ImgurImagesActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     //stuff that updates ui
-                    val obj_adapter: ImgurImageAdapter
-                    obj_adapter = ImgurImageAdapter(arrayList_details, layoutManager!!)
+                    val sortedarlist = arrayList_details.sortedWith(
+                        compareByDescending(ImgurModel::post_date)
+                    )
+                     val obj_adapter: ImgurImageAdapter
+                    obj_adapter = ImgurImageAdapter(sortedarlist, layoutManager!!)
                     recyclerView!!?.adapter = obj_adapter
                 }
 
@@ -111,3 +122,6 @@ class ImgurImagesActivity : AppCompatActivity() {
     }
 
 }
+
+
+
